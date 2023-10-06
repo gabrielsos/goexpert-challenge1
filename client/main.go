@@ -34,6 +34,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	if res.StatusCode != http.StatusOK {
+		log.Fatal("Request failed")
+	}
+
 	defer res.Body.Close()
 
 	body, err := io.ReadAll(res.Body)
